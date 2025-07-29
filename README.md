@@ -178,3 +178,9 @@ XpenseMate/
 │   ├── package.json
 │   └── vite.config.js
 └── README.md              # Project documentation (main root)
+
+```
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
