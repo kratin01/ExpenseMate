@@ -56,7 +56,7 @@ Experience XpenseMate in action with this quick walkthrough:
 
 > _Watch the demo video below (if viewing locally, open the video file in the public folder):_
 
-<video src="client/public/XpenseMate.mp4" controls width="500"></video>
+[![XpenseMate Demo](client/public/Dashboard_SS.png)](https://github.com/user-attachments/assets/e399c2f8-e4db-47f0-ad3c-c14e95ecb275)
 
 ---
 
