@@ -56,7 +56,7 @@ Experience XpenseMate in action with this quick walkthrough:
 
 > _Watch the demo video below (if viewing locally, open the video file in the public folder):_
 
-<video src="client/public/XpenseMate%20-%20Made%20with%20Clipchamp.mp4" controls width="500"></video>
+<video src="client/public/XpenseMate.mp4" controls width="500"></video>
 
 ---
 
