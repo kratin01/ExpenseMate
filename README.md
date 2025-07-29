@@ -30,7 +30,7 @@ Track spending, manage budgets, and reach your financial goals effortlessly.
 **XpenseMate** is a full-stack web application designed to simplify personal finance management. Users can register, log in, add and categorize transactions, upload receipts for automatic data extraction, and visualize their spending trends and breakdowns. The app is built with a focus on usability, security, and insightful analytics.
 
 <div align="center">
-  <img src="public/LandingPage_SS.png" alt="Landing Page" width="500"/>
+  <img src="client/public/LandingPage_SS.png" alt="Landing Page" width="500"/>
  
   
 </div>
@@ -40,8 +40,8 @@ Track spending, manage budgets, and reach your financial goals effortlessly.
 ## Project Screenshots
 
 <div align="center">
-  <img src="public/Dashboard_SS.png" alt="Dashboard" width="350" style="margin: 10px;"/>
-  <img src="public/Transaction_SS.png" alt="Transactions" width="350" style="margin: 10px;"/>
+  <img src="client/public/Dashboard_SS.png" alt="Dashboard" width="350" style="margin: 10px;"/>
+  <img src="client/public/Transaction_SS.png" alt="Transactions" width="350" style="margin: 10px;"/>
 </div>
 
 <p align="center">
