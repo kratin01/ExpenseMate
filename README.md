@@ -175,9 +175,6 @@ XpenseMate/
 │   │   ├── utils/         # Utility functions
 │   │   ├── App.jsx        # App root
 │   │   └── main.jsx       # Entry point
-│   ├── README.md          # Client-specific documentation
 │   ├── package.json
 │   └── vite.config.js
-
-
-```
+└── README.md              # Project documentation (main root)
