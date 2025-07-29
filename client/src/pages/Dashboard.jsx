@@ -23,7 +23,7 @@ const Dashboard = () => {
     fetchSummary();
   }, []);
 
-  if (loading) return <Spinner fullScreen={true} size={64} />;;
+  if (loading) return <Spinner fullScreen={false} size={64} />;;
 
   return (
     <div className="container mx-auto px-4 py-8">

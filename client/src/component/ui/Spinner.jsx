@@ -1,13 +1,11 @@
 // src/components/Spinner.jsx
 
-
 const Spinner = ({
   fullScreen = false,
   size = 48,
-  colorClassName = "border-t-indigo-600",
-  trackClassName = "border-slate-200",
+  colorClassName = "border-t-slate-500",
+  trackClassName = "border-slate-300",
 }) => {
- 
   const wrapperClasses = fullScreen
     ? "fixed inset-0 z-50 flex justify-center items-center bg-gray-100/70 backdrop-blur-sm"
     : "flex justify-center items-center py-8";
