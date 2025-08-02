@@ -24,8 +24,7 @@ const ExpenseTrendChart = ({ data }) => {
         {/* Y-axis for expense amount */}
         <YAxis />
         
-        {/* Tooltip to show formatted expense values on hover */}
-        <Tooltip formatter={(value) => [`$${value.toFixed(2)}`, 'Amount']} />
+        <Tooltip formatter={(value) => [`₹${value.toFixed(2)}`, 'Amount (INR)']} />
         
         {/* Legend to label lines */}
         <Legend />

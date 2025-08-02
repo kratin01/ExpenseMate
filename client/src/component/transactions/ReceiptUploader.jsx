@@ -10,10 +10,11 @@ const ReceiptUploader = ({ onDataExtracted }) => {
     const file = e.target.files[0];
     if (!file) return;
 
-    // Validate file type
-    const validTypes = ['image/jpeg', 'image/png', 'image/webp'];
+    // 1. Add 'application/pdf' to the list of valid types
+    const validTypes = ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'];
     if (!validTypes.includes(file.type)) {
-      toast.error('Invalid file type. Please upload JPEG, PNG, or WEBP image.');
+      // 2. Update the error message to include PDF
+      toast.error('Invalid file type. Please upload an Image or PDF.');
       return;
     }
 
@@ -25,10 +26,10 @@ const ReceiptUploader = ({ onDataExtracted }) => {
       
       const response = await extractReceipt(formData);
       onDataExtracted(response.data);
-      toast.success('Receipt processed successfully!');
+      toast.success('Receipt/PDF processed successfully!');
     } catch (error) {
       console.error('Receipt processing error:', error);
-      toast.error(error.response?.data?.error || 'Failed to process receipt');
+      toast.error(error.response?.data?.error || 'Failed to process receipt/PDF');
     } finally {
       setIsProcessing(false);
       // Reset input to allow same file re-upload
@@ -58,14 +59,16 @@ const ReceiptUploader = ({ onDataExtracted }) => {
               Processing receipt...
             </span>
           ) : (
-            'Select Receipt Image'
+            // 3. Update the label text
+            'Select Receipt File (Image or PDF)'
           )}
         </label>
         
         <input
           id="receipt-upload"
           type="file"
-          accept="image/jpeg, image/png, image/webp"
+          // 4. Add 'application/pdf' to the accept attribute
+          accept="image/jpeg, image/png, image/webp, application/pdf"
           className="hidden"
           onChange={handleFileChange}
           disabled={isProcessing}
@@ -73,7 +76,8 @@ const ReceiptUploader = ({ onDataExtracted }) => {
       </div>
       
       <p className="mt-2 text-xs text-gray-500">
-        Supported formats: JPEG, PNG, WEBP. Max size: 10MB
+        {/* 5. Update the helper text */}
+        Supported formats: JPEG, PNG, WEBP, PDF. Max size: 10MB
       </p>
     </div>
   );

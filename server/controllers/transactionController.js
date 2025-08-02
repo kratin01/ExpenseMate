@@ -68,20 +68,25 @@ export async function getTransactions(req, res) {
 export async function getSummary(req, res) {
   try {
     // Match only this user's expenses
-    const match = {
+    const baseMatch = {
       user: new mongoose.Types.ObjectId(req.user.id),
-      type: "expense",
+      
     };
 
     // Group expenses by category
-    const byCategory = await Transaction.aggregate([
-      { $match: match },
+    const byIncome = await Transaction.aggregate([
+      { $match: {...baseMatch,type:"income"} },
+      { $group: { _id: "$category", total: { $sum: "$amount" } } },
+    ]);
+
+    const byExpense = await Transaction.aggregate([
+      { $match: {...baseMatch,type:"expense"} },
       { $group: { _id: "$category", total: { $sum: "$amount" } } },
     ]);
 
     // Group expenses by date
     const byDate = await Transaction.aggregate([
-      { $match: match },
+      { $match: baseMatch },
       {
         $group: {
           _id: { $dateToString: { format: "%Y-%m-%d", date: "$date" } }, // Format date
@@ -91,7 +96,7 @@ export async function getSummary(req, res) {
       { $sort: { _id: 1 } }, // Sort by date ascending
     ]);
 
-    res.json({ byCategory, byDate });
+    res.json({ byIncome, byExpense, byDate });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

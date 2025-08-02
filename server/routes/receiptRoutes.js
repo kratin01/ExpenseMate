@@ -3,15 +3,15 @@ import { extractReceipt } from '../controllers/receiptController.js';
 import auth from '../middlewares/auth.js';
 import multer from 'multer';
 
-const upload = multer({ 
+const upload = multer({
   storage: multer.memoryStorage(),
-  limits: { fileSize: 10 * 1024 * 1024 } // 10MB
+  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB limit
 });
 
 const router = express.Router();
 
 router.post(
-  '/extract', 
+  '/extract',
   auth,
   upload.single('receipt'),
   extractReceipt

@@ -14,31 +14,26 @@ const CategoryPieChart = ({ data }) => {
   }
 
   return (
-    // ResponsiveContainer makes the chart adapt to parent size
     <ResponsiveContainer width="100%" height={300}>
       <PieChart>
-        {/* Main Pie component */}
         <Pie
           data={data}
-          cx="50%" // Center X position
-          cy="50%" // Center Y position
-          labelLine={false} // Disable default label lines
-          outerRadius={80} // Radius of the pie
-          fill="#8884d8" // Default fill color (overridden by Cell)
-          dataKey="total" // Value field for each slice
-          nameKey="_id" // Label field for each slice
-          label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`} // Custom label
+          cx="50%"
+          cy="50%"
+          labelLine={false}
+          outerRadius={80}
+          fill="#8884d8"
+          dataKey="total"
+          nameKey="_id"
+          label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
         >
-          {/* Map through data to assign colors to each slice */}
           {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
           ))}
         </Pie>
 
-        {/* Tooltip shows value on hover */}
-        <Tooltip formatter={(value) => [`$${value.toFixed(2)}`, 'Amount']} />
-        
-        {/* Legend displays category names */}
+        <Tooltip formatter={(value) => [`₹${value.toFixed(2)}`, 'Amount (INR)']} />
+
         <Legend />
       </PieChart>
     </ResponsiveContainer>

@@ -5,7 +5,7 @@ import ExpenseTrendChart from "../component/transactions/charts/ExpenseTrendChar
 import Spinner from "../component/ui/Spinner";
 
 const Dashboard = () => {
-  const [summary, setSummary] = useState({ byCategory: [], byDate: [] });
+  const [summary, setSummary] = useState({ byIncome: [], byExpense: [], byDate: [] });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -32,7 +32,12 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold mb-4">Expenses by Category</h2>
-          <CategoryPieChart data={summary.byCategory} />
+          <CategoryPieChart data={summary.byExpense} />
+        </div>
+
+                <div className="bg-white p-6 rounded-lg shadow-md">
+          <h2 className="text-xl font-semibold mb-4">Income by Category</h2>
+          <CategoryPieChart data={summary.byIncome} />
         </div>
 
         <div className="bg-white p-6 rounded-lg shadow-md">
